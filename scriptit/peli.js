@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const rullaSarja = [];
 
+    kaynnista_nappi.style.backgroundImage = 'url("./kuvat/nappi_kaynnista_off.gif")';
     kaynnista_nappi.style.backgroundImage = 'url("./kuvat/nappi_kaynnista_off.webp")';
     panosNappi1.style.backgroundImage = 'url("./kuvat/r1.gif")';
     panosNappi2.style.backgroundImage = 'url("./kuvat/r2.gif")';
