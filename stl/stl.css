@@ -1,0 +1,490 @@
+html {
+    background-image: url("../kuvat/matto.webp");
+}
+
+body {
+    font-family: arial;
+    background-image: url("../kuvat/pelihuone.webp");
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0;
+    overflow-y: hidden;
+    white-space: nowrap;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+button {
+    cursor: url("../kuvat/handy.webp"), auto;
+}
+
+.pelialue {
+    position: relative; 
+    width: 100vh;
+    height: 100vh;
+    margin: 0px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pelialue #koneenRunko {
+    width: 82%;
+    cursor: url("../kuvat/nuoli.webp"), auto;
+}
+
+#rulla1,
+#rulla2,
+#rulla3,
+#rulla4 {
+    position: absolute; 
+    top: 44.5%; 
+    width: 9.8%;
+    height: 21.5%;
+    transform: translate(-50%, -50%);
+    cursor: url("../kuvat/nuoli.webp"), auto;
+}
+
+#rulla1 {left: 27.5%;}
+#rulla2 {left: 38.9%;}
+#rulla3 {left: 50.6%;}
+#rulla4 {left: 62.1%;}
+
+#lukitus1,
+#lukitus2,
+#lukitus3,
+#lukitus4 {
+    background-image: url("./kuvat/nappi_lukitus_off.webp");
+    background-size: cover;
+    position: absolute; 
+    top: 60%; 
+    width: 8%;
+    height: 4.8%;
+    border: solid 2px rgb(50, 230, 10);
+    border-radius: 10px;
+    transform: translate(-50%, -50%); 
+    z-index: 1;
+}
+
+#lukitus1 {left: 27.25%;}
+#lukitus2 {left: 38.7%;}
+#lukitus3 {left: 50.35%;}
+#lukitus4 {left: 61.9%;}
+
+#kaynnista {
+    background-image: url("./kuvat/nappi_kaynnista.gif");
+    background-size: cover;
+    position: absolute; 
+    top: 58.5%; 
+    left: 74.35%;
+    width: 10%;
+    height: 5.5%;
+    border: solid 2px rgb(255, 190, 190);
+    border-radius: 20px;
+    transform: translate(-50%, -50%); 
+    z-index: 1;
+}
+
+#panosNappi1,
+#panosNappi2,
+#panosNappi3,
+#panosNappi4 {
+    background-size: cover;
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    top: 38px;
+    border-radius: 40px;
+    border: solid 3px #ffffff;
+    box-shadow: 2px 5px 12px white;
+    z-index: 1;
+}
+
+#panosNappi1 {left: 300px;}
+#panosNappi2 {left: 360px;}
+#panosNappi3 {left: 420px;}
+#panosNappi4 {left: 480px;}
+
+#uusiPeli{
+    position: absolute; 
+    top: 73%; 
+    width: 20%;
+    height: 5%;
+    background-image: url("../kuvat/nappi_uusipeli.gif");
+    background-size: cover;
+    border: solid 2px rgb(255, 255, 255);
+    box-shadow: 1px 5px 15px rgb(245, 221, 172);
+    border-radius: 20px;
+    transform: translate(-50%, -50%); 
+    z-index: 1;
+}
+
+#lopetaPeli {
+    position: absolute; 
+    top: 73%; 
+    width: 20%;
+    height: 5%;
+    background-image: url("../kuvat/nappi_poistu.gif");
+    background-size: cover;
+    border: solid 2px rgb(255, 255, 255);
+    box-shadow: 1px 5px 15px rgb(245, 221, 172);
+    border-radius: 20px;
+    transform: translate(-50%, -50%); 
+    z-index: 1;
+}
+
+#uusiPeli {left: 35%;}
+#lopetaPeli {left: 64%;}
+
+#reset{
+    position: absolute;
+    top: 87.7%;
+    left: 77%;
+    width: 5%;
+    font-size: .4rem;
+    color: #333;
+    background-image: linear-gradient(rgb(179, 179, 179), rgb(58, 58, 58));
+    border-radius: 10px;
+    border: solid 1px #000;
+    box-shadow: 2px 4px px #223377;
+}
+
+#naytto1, #naytto2 {
+    position: absolute; 
+    color: white;
+    text-shadow: 2px 5px 12px white;
+    border-radius: 6px;
+    background-image: linear-gradient(rgb(252, 211, 164), rgb(223, 151, 92), rgb(219, 120, 6));
+    cursor: url("../kuvat/nuoli.webp"), auto;
+    /*background-image: linear-gradient(rgb(82, 70, 255), rgb(29, 67, 122), rgb(30, 24, 116));*/
+    /*background-image: linear-gradient(rgb(149, 255, 184), rgb(96, 241, 115), rgb(27, 167, 50));*/
+    /*background-image: linear-gradient(rgb(255, 206, 150), rgb(241, 161, 96), rgb(167, 102, 27));*/
+}
+
+#naytto1 { 
+    top: 67%; 
+    left: 16.5%;
+    width: 65.5%;
+    height: 11.75%;
+}
+
+#naytto2 {
+    top: 17.8%; 
+    left: 19.6%;
+    width: 61.9%;
+    height: 9.6%;
+}
+
+#tulokset {
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: bold;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top:50%;
+    left: 50%;
+}
+
+#saldoTeksti, #panosTeksti {
+    font-size: 2.2rem;
+    font-weight: bold;
+    position: absolute;
+    left: 20px;
+}
+
+#saldoTeksti {
+    top: 10px;
+}
+
+#panosTeksti {
+    top: 50px;
+}
+
+#saldoSumma, #panosSumma {
+    position: absolute;
+    left: 180px;
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+#saldoSumma {
+    top: 5px;
+}
+
+#panosSumma {
+    top: 45px;
+}
+
+#lisaaPanos {
+    font-size: 1.4rem;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    left: 332px;
+}
+
+/* Näyttökoot -------------------------------------------------------- */
+
+@media (min-width: 1920px) and (max-width: 2560px) {
+
+    #panosNappi1,
+    #panosNappi2,
+    #panosNappi3,
+    #panosNappi4 {
+        width: 65px;
+        height: 65px;
+        top: 60px;
+    }
+
+    #panosNappi1 {left: 410px;}
+    #panosNappi2 {left: 500px;}
+    #panosNappi3 {left: 590px;}
+    #panosNappi4 {left: 680px;}
+
+    #tulokset {
+        font-size: 2.1rem;
+        line-height: 2.3rem;
+        }
+
+    #reset{
+        top: 87.85%;
+        left: 76.7%;
+        width: 5.5%;
+        height: 1.2%;
+        font-size: .5rem;
+        }
+
+    #saldoTeksti, #panosTeksti{
+        font-size: 3.2rem;
+        }
+
+    #saldoTeksti {
+        top: 5px;
+        left: 30px;
+    }  
+
+    #panosTeksti {
+        top:75px;
+        left: 30px;
+        }
+
+    #saldoSumma, #panosSumma {
+        font-size: 4rem;
+        left: 250px;
+    }
+
+    #saldoSumma {
+        top: -5px;    
+    }
+
+    #panosSumma {
+        top: 64px;
+        }
+
+    #lisaaPanos {
+        font-size: 2rem;
+        top: 15px;
+        left: 464px;
+    }
+}
+
+/* Mobiili ------------------------------------------------------------------- */
+
+@media (max-width: 900px) {
+
+    body {
+        position: absolute;
+        background-image: none;
+    }
+
+    .pelialue {
+        position: relative; 
+        top: 200px;
+        width: 100vh;
+        height: 200vh;
+        margin: 0px auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .pelialue #koneenRunko {
+        width: 100%;
+        height: 100%;
+    }
+    
+    #rulla1,
+    #rulla2,
+    #rulla3,
+    #rulla4 {
+        position: absolute; 
+        top: 44.25%; 
+        width: 12.2%;
+        height: 21%;
+        transform: translate(-50%, -50%); 
+    }
+    
+    #rulla1 {left: 22.5%;}
+    #rulla2 {left: 36%;}
+    #rulla3 {left: 50.5%;}
+    #rulla4 {left: 65.1%;}
+
+    #lukitus1,
+    #lukitus2,
+    #lukitus3,
+    #lukitus4 {
+        background-image: url("./kuvat/nappi_lukitus_off.webp");
+        background-size: cover;
+        position: absolute; 
+        top: 60%; 
+        width: 13%;
+        height: 3.5%;
+        border: solid 2px rgb(50, 230, 10);
+        border-radius: 10px;
+        transform: translate(-50%, -50%); 
+        z-index: 1;
+    }
+    
+    #lukitus1 {left: 22.5%;}
+    #lukitus2 {left: 36.5%;}
+    #lukitus3 {left: 50.5%;}
+    #lukitus4 {left: 64.5%;}
+    
+    #kaynnista {
+        background-image: url("./kuvat/nappi_kaynnista.gif");
+        background-size: cover;
+        position: absolute; 
+        top: 58.5%; 
+        left: 79.6%;
+        width: 14%;
+        height: 4%;
+        border: solid 2px rgb(255, 190, 190);
+        border-radius: 20px;
+        transform: translate(-50%, -50%); 
+        z-index: 1;
+    }
+
+    #panosNappi1,
+    #panosNappi2,
+    #panosNappi3,
+    #panosNappi4 {
+        background-size: cover;
+        position: absolute;
+        width: 70px;
+        height: 70px;
+        top: 100px;
+        border-radius: 40px;
+        border: solid 3px #ffffff;
+        box-shadow: 2px 5px 12px white;
+        z-index: 1;
+    }
+    
+    #panosNappi1 {left: 410px;}
+    #panosNappi2 {left: 490px;}
+    #panosNappi3 {left: 570px;}
+    #panosNappi4 {left: 650px;}
+    
+    #uusiPeli, #lopetaPeli {
+        color: white;
+        font-size: 1rem;
+        font-weight: bold;
+        position: absolute; 
+        top: 73%; 
+        width: 20%;
+        height: 5%;
+        background-color: rgb(22, 177, 125);
+        border: solid 2px rgb(255, 255, 255);
+        box-shadow: 1px 5px 15px rgb(245, 221, 172);
+        border-radius: 20px;
+        transform: translate(-50%, -50%); 
+        z-index: 1;
+    }
+    
+    #uusiPeli {left: 35%;}
+    #lopetaPeli {left: 64%;}
+
+    #reset{
+        top: 87.8%;
+        left: 83.5%;
+        width: 5.5%;
+        height: 1.2%;
+        font-size: .5rem;
+        }
+    
+    #naytto1 {
+        top: 67%; 
+        left: 9%;
+        width: 80.4%;
+        height: 11.8%;
+    }
+    
+    #naytto2 {
+        top: 17.9%; 
+        left: 13%;
+        width: 76%;
+        height: 10.9%;
+    }
+    
+    #tulokset {
+        position: absolute;
+        text-align: center;
+        font-size: 2.9rem;
+        font-weight: bold;
+        line-height: 4rem;
+        transform: translate(-50%, -50%);
+        top:50%;
+        left: 50%;
+    }
+    
+    #saldoTeksti, #panosTeksti {
+        font-size: 3.5rem;
+        font-weight: bold;
+        position: absolute;
+        left: 30px;
+    }
+    
+    #saldoTeksti {
+        top: 35px;
+    }
+    
+    #panosTeksti {
+        top: 125px;
+    }
+    
+    #saldoSumma, #panosSumma {
+        position: absolute;
+        font-size: 4.5rem;
+        font-weight: bold;
+    }
+    
+    #saldoSumma {
+        top: 20px;    
+        left: 255px;
+    }
+    
+    #panosSumma {
+        top: 111px;
+        left: 255px;
+    }
+    
+    #lisaaPanos {
+        font-size: 2rem;
+        font-weight: bold;
+        position: absolute;
+        top: 50px;
+        left: 456px;
+    }
+
+    #uusiPeli, #lopetaPeli{
+        top: 73%; 
+        width: 30%;
+        height: 4%;
+   
+    }
+
+    #uusiPeli {left: 32%;}
+    #lopetaPeli {left: 68%;}
+
+}
