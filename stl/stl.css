@@ -388,7 +388,7 @@ button {
     
     #uusiPeli, #lopetaPeli {
         color: white;
-        font-size: 1rem;
+        font-size: 1rem !important;
         font-weight: bold;
         position: absolute; 
         top: 73%; 
@@ -432,7 +432,7 @@ button {
         text-align: center;
         font-size: 2rem;
         font-weight: bold;
-        line-height: 3rem;
+        line-height: 3rem !important;
         transform: translate(-50%, -50%);
         top:50%;
         left: 50%;
@@ -440,7 +440,7 @@ button {
     
     #saldoTeksti, #panosTeksti {
         font-size: 1.7rem !important;
-        font-weight: bold !important;
+        font-weight: bold;
         position: absolute;
         left: 30px;
     }
