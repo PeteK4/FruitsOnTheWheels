@@ -372,8 +372,8 @@ button {
     #panosNappi4 {
         background-size: cover;
         position: absolute;
-        width: 70px;
-        height: 70px;
+        width: 60px;
+        height: 60px;
         top: 100px;
         border-radius: 40px;
         border: solid 3px #ffffff;
@@ -381,10 +381,10 @@ button {
         z-index: 1;
     }
     
-    #panosNappi1 {left: 410px;}
-    #panosNappi2 {left: 490px;}
-    #panosNappi3 {left: 570px;}
-    #panosNappi4 {left: 650px;}
+    #panosNappi1 {left: 360px;}
+    #panosNappi2 {left: 440px;}
+    #panosNappi3 {left: 520px;}
+    #panosNappi4 {left: 600px;}
     
     #uusiPeli, #lopetaPeli {
         color: white;
@@ -430,16 +430,16 @@ button {
     #tulokset {
         position: absolute;
         text-align: center;
-        font-size: 2.9rem;
+        font-size: 2rem;
         font-weight: bold;
-        line-height: 4rem;
+        line-height: 3rem;
         transform: translate(-50%, -50%);
         top:50%;
         left: 50%;
     }
     
     #saldoTeksti, #panosTeksti {
-        font-size: 3.5rem;
+        font-size: 2.5rem;
         font-weight: bold;
         position: absolute;
         left: 30px;
@@ -455,18 +455,18 @@ button {
     
     #saldoSumma, #panosSumma {
         position: absolute;
-        font-size: 4.5rem;
+        font-size: 3.5rem;
         font-weight: bold;
     }
     
     #saldoSumma {
         top: 20px;    
-        left: 255px;
+        left: 215px;
     }
     
     #panosSumma {
         top: 111px;
-        left: 255px;
+        left: 215px;
     }
     
     #lisaaPanos {
@@ -474,7 +474,7 @@ button {
         font-weight: bold;
         position: absolute;
         top: 50px;
-        left: 456px;
+        left: 390px;
     }
 
     #uusiPeli, #lopetaPeli{
