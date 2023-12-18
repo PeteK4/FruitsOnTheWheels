@@ -352,9 +352,6 @@ document.addEventListener('DOMContentLoaded', function() {
             };
         
             if (lompakko == 0 && !voittoSarja) {
-
-                console.log(voittoSarja, rullatArvottu, "OSA2")
-
                 kaynnista_nappi.style.backgroundImage = 'url("./kuvat/nappi_kaynnista_off.webp")'
                 kaynnista_nappi.classList.add("disabled");
                 tulosNaytto.innerHTML = "PELI PÄÄTTYI";
