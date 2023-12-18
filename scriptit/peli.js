@@ -36,8 +36,8 @@ document.addEventListener('DOMContentLoaded', function() {
     let panosValittu = false; 
     let voittoSarja = false;
     let gameOver = false;
-    let kierros = 0
-    let lukitut = 0
+    let kierros = 0;
+    let lukitut = 0;
 
     // Voittotaulukko: *panoskerroin, sulkeissa kuvaindeksi
     // 4 x 7 = *20 (1)
@@ -58,8 +58,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // 4 x kirsikka = *2 (5)
     // 3 x kirsikka = *1 (5)
 
-    // rullaatit = [2,1,2,2]  // TESTAAMISEEN
-    // let rullaatitIndeksi = 0   // TESTAAMISEEN
+    rullaatit = [1,2,1,1];    // TESTAAMISEEN
+    let rullaatitIndeksi = 0; // TESTAAMISEEN
 
     for (let i = 0; i < rullaID.length; i++) {
         const rulla = document.getElementById(rullaID[i]);
@@ -197,9 +197,9 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             const arpaLuku = Math.floor(Math.random() * 6) + 1;
-            // const arpaLuku = rullaatit[rullaatitIndeksi] //TESTAAMISEEN
-            // rullaatitIndeksi++ // TESTAAMISEEN
-
+            //const arpaLuku = rullaatit[rullaatitIndeksi]    //TESTAAMISEEN
+            rullaatitIndeksi++  //TESTAAMISEEN
+            
             setTimeout(() => {
                 rulla.src = `./kuvat/rulla${arpaLuku}.webp`;
                 rullaSarja[indeksi] = arpaLuku;
@@ -253,8 +253,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         await Promise.all(rullat);
+
         kierros++
-        //rullaatitIndeksi = 0 // TESTAAMISEEN
+        rullaatitIndeksi = 0 // TESTAAMISEEN
         
         kaynnista_nappi.classList.remove("disabled");
         kaynnista_nappi.style.cssText = 'background-image: url("./kuvat/nappi_kaynnista_off.gif"); border: solid 2px rgb(255, 190, 190); box-shadow: 0px 0px 25px rgb(255, 200, 200);';
@@ -262,7 +263,7 @@ document.addEventListener('DOMContentLoaded', function() {
         panosNapit(parseInt(saldoSumma.innerText));
         rullatArvottu = true;
         rullatPyorii = false;
-            
+
         if (rullatArvottu) {
             const rullaSarjaStr = rullaSarja.join("");
             const panos = parseInt(panosSumma.innerText);
@@ -338,17 +339,22 @@ document.addEventListener('DOMContentLoaded', function() {
                 lukitus.style.border = "solid 2px rgb(50, 230, 10)";
             }
 
-            if (!voittoSarja){tulosNaytto.innerHTML = "EI VOITTOA - LISÄÄ PANOS";}
-                kaynnista_nappi.style.backgroundImage = 'url("./kuvat/nappi_kaynnista_off.webp")'
-                kaynnista_nappi.classList.add("disabled");
-                panosNapit(parseInt(saldoSumma.innerText));
-                voittoSarja = false;
-                rullatArvottu = false;
-                panosSumma.innerHTML = "0<span style='font-size: 2rem;'> €</span>";
-                kierros = 0;
-            } 
+            if (!voittoSarja){
+                tulosNaytto.innerHTML = "EI VOITTOA - LISÄÄ PANOS";
+            }
+
+            kaynnista_nappi.style.backgroundImage = 'url("./kuvat/nappi_kaynnista_off.webp")'
+            kaynnista_nappi.classList.add("disabled");
+            panosNapit(parseInt(saldoSumma.innerText));
+            rullatArvottu = false;
+            panosSumma.innerHTML = "0<span style='font-size: 2rem;'> €</span>";
+            kierros = 0;
+            };
         
-            if (lompakko == 0) {
+            if (lompakko == 0 && !voittoSarja) {
+
+                console.log(voittoSarja, rullatArvottu, "OSA2")
+
                 kaynnista_nappi.style.backgroundImage = 'url("./kuvat/nappi_kaynnista_off.webp")'
                 kaynnista_nappi.classList.add("disabled");
                 tulosNaytto.innerHTML = "PELI PÄÄTTYI";
@@ -363,7 +369,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
                 
             } else 
-                if (kierros == 1) {
+                if (kierros == 1 && !voittoSarja) {
                 panosNapit(parseInt(saldoSumma.innerText));
                 for (const lukitus of lukitusNapit) {
                     if (!lukitus.style.backgroundImage.includes("nappi_lukitus_on")) {
@@ -372,7 +378,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                 }
             }
-    }};
+        }};
 
     function tulosNaytolle(tulos) {
         tulosNaytto.innerHTML = `<span style='font-size: 2.3rem;'>VOITIT</span>&nbsp;&nbsp;&nbsp;<span style='font-size: 3rem;'>${tulos}</span><span style='font-size: 2.3rem;'>&nbsp;&nbsp;€</span><br>ASETA PANOS`;
@@ -381,10 +387,11 @@ document.addEventListener('DOMContentLoaded', function() {
     kaynnista_nappi.addEventListener("click", function () {
         lukitut = 0;
         if (panosValittu && !kaynnista_nappi.classList.contains("disabled")) {
-            kaynnista_nappi.classList.add("disabled");
             rullatPyorii = true;
+            voittoSarja = false;
             panosNapit(parseInt(saldoSumma.innerText));
             tulosNaytto.innerHTML = "☰&nbsp;&nbsp;&nbsp;&nbsp;☰&nbsp;&nbsp;&nbsp;&nbsp;☰&nbsp;&nbsp;&nbsp;&nbsp;☰";
+            kaynnista_nappi.classList.add("disabled");
             koneRullaamaan();
         }
     });
